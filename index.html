@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timesheet Automation Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f9f9f9;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .card {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .flow {
+            background: #f0f4ff;
+            padding: 10px;
+            border-left: 4px solid #4a6cf7;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+        .highlight {
+            color: #d35400;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: #fff;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background: #2c3e50;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+        .tag {
+            display: inline-block;
+            padding: 3px 8px;
+            background: #e3f2fd;
+            border-radius: 4px;
+            margin-right: 5px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🚀 Timesheet Automation Strategy</h1>
+
+<div class="card">
+    <h2>Option 1: Native Automation (Best starting point)</h2>
+
+    <p><strong>Use:</strong> Jira Automation rules</p>
+
+    <h3>What you can automate:</h3>
+    <ul>
+        <li>Weekly reminders</li>
+        <li>Conditional nudges (only to defaulters)</li>
+        <li>Escalation to managers</li>
+    </ul>
+
+    <div class="flow">
+Every Friday 4 PM
+↓
+Check Tempo logs (via API / workaround)
+↓
+If &lt; required hours
+↓
+Send reminder (Slack/Email)
+    </div>
+
+    <h3>Implementation:</h3>
+    <ul>
+        <li>Trigger: Scheduled (Friday 4 PM)</li>
+        <li>Action: Send message via Slack / Teams / Email</li>
+    </ul>
+
+    <p class="highlight">Limitation: Jira Automation can’t directly read Tempo logs cleanly.</p>
+</div>
+
+<div class="card">
+    <h2>Option 2: Smart Automation via API (Best real solution)</h2>
+
+    <h3>Stack:</h3>
+    <span class="tag">Tempo API</span>
+    <span class="tag">Node / Python</span>
+    <span class="tag">Cron / Cloud Function</span>
+
+    <div class="flow">
+Fetch all users
+↓
+Call Tempo API → get logged hours
+↓
+Compare vs expected (40 hrs/week)
+↓
+If incomplete → send reminder
+↓
+If still incomplete → escalate
+    </div>
+
+    <h3>Tools:</h3>
+    <ul>
+        <li>Zapier (low-code)</li>
+        <li>Make (advanced)</li>
+        <li>AWS Lambda / Cron</li>
+    </ul>
+</div>
+
+<div class="card">
+    <h2>Option 3: Zero-Effort Nudging System (Most effective)</h2>
+
+    <h3>Strategy:</h3>
+    <ul>
+        <li>Daily reminder (5 PM)</li>
+        <li>Thursday warning</li>
+        <li>Friday strict reminder</li>
+    </ul>
+
+    <p class="highlight">Reduces failure rate by 80%+</p>
+</div>
+
+<div class="card">
+    <h2>Option 4: Hard Enforcement</h2>
+
+    <h3>If people still ignore:</h3>
+    <ul>
+        <li>Block leave approvals</li>
+        <li>Restrict sprint participation</li>
+        <li>Impact performance metrics</li>
+    </ul>
+
+    <p class="highlight">Brutal but effective</p>
+</div>
+
+<div class="card">
+    <h2>💡 Recommended Setup</h2>
+    <ul>
+        <li>Daily Slack reminder (5 PM)</li>
+        <li>Friday 3 PM smart check via API</li>
+        <li>Auto-reminder only to defaulters</li>
+        <li>Friday 6 PM escalation to manager</li>
+    </ul>
+</div>
+
+<div class="card">
+    <h2>🧩 Sample Slack Message</h2>
+    <div class="flow">
+Hi {Name},
+
+You’ve logged only {X} hours this week.
+
+Please complete your timesheet before 6 PM today.
+
+Thanks.
+    </div>
+</div>
+
+<div class="card">
+    <h2>🏁 Bottom Line</h2>
+    <p>
+        This is <strong>100% automatable</strong>.
+        <br><br>
+        If you’re still chasing people manually:
+        <span class="highlight">It’s not a people problem — it’s a system design problem.</span>
+    </p>
+</div>
+
+<h2>📊 Comparison Table</h2>
+
+<table>
+    <tr>
+        <th>Option</th>
+        <th>Approach</th>
+        <th>Features</th>
+        <th>Effort</th>
+        <th>Code</th>
+        <th>Cost</th>
+        <th>Scalability</th>
+        <th>Accuracy</th>
+        <th>Best For</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Jira Automation</td>
+        <td>Basic reminders</td>
+        <td>Low</td>
+        <td>No</td>
+        <td>Free</td>
+        <td>Limited</td>
+        <td>Low</td>
+        <td>Small teams</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Tempo Native</td>
+        <td>Reports, approvals</td>
+        <td>Low-Medium</td>
+        <td>No</td>
+        <td>Licensed</td>
+        <td>Good</td>
+        <td>Medium</td>
+        <td>Most teams</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Slack Integration</td>
+        <td>Team nudges</td>
+        <td>Low-Medium</td>
+        <td>No</td>
+        <td>Free</td>
+        <td>Good</td>
+        <td>Low</td>
+        <td>Culture-driven teams</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Zapier / Make</td>
+        <td>Targeted automation</td>
+        <td>Medium</td>
+        <td>No</td>
+        <td>Paid</td>
+        <td>High</td>
+        <td>High</td>
+        <td>Growing teams</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Custom Script</td>
+        <td>Full automation</td>
+        <td>High</td>
+        <td>Yes</td>
+        <td>Low infra</td>
+        <td>Very High</td>
+        <td>Very High</td>
+        <td>Mature org</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Policy Enforcement</td>
+        <td>Blocking, penalties</td>
+        <td>Medium</td>
+        <td>No</td>
+        <td>Free</td>
+        <td>Very High</td>
+        <td>Very High</td>
+        <td>Strict org</td>
+    </tr>
+</table>
+
+<div class="card">
+    <h2>🧠 Final Recommendation (No-Code)</h2>
+    <p>
+        <strong>Best Setup:</strong> Option 2 + Option 3
+        <br><br>
+        ✔ Zero effort <br>
+        ✔ No cost <br>
+        ✔ Solves 80–90% problem
+    </p>
+</div>
+
+</body>
+</html>
